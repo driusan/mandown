@@ -1,11 +1,5 @@
 # mandown - a tool for writing man pages in markdown.
 
-## Synopsis
-
-mandown [options] filename [filenames..]
-
-## Description
-
 mandown converts markdown formatted manuals into the troff(1) based format that
 is used by man(1) on most systems.
 
@@ -25,39 +19,13 @@ normalize the sections/whitespace, and print it to the screen in a format
 similar to running `man <cmd>`. With the -t option, it will print it as troff
 macros instead of human-readable format.
 
-mandown will attempt to guess the section of the manual page as best as it can
-from context. Files named foo.n.md are assumed to be intended to be
-documentation for foo(n). Otherwise, mandown will assume you're documenting a
-command and assume section 1.
+See mandown.1.md for an example.
 
-You need to take a little care when writing your markdown. Your file should
-start with a header of the form "# command - title" and each section of the
-manpage should start with "## sectionname". Other than that, mandown doesn't
-pay much attention to the content of the file and passes most things along
-literally.
+## Installation
 
-## Options
+mandown is written in Go, and should be go-gettable
 
--t
-	Output the file in troff format, instead of plaintext
+```
+go get github.com/driusan/mandown
+```
 
---section=n
-	specify the section that the manual being parsed belongs to. If unspecified,
-	mandown will try and guess based on the filename as described above.
-
---install=dir
-	Copy the gzipped output to `dir` instead of printing it to the screen (implies -t)
-
-## Bugs
-
-This is mostly written as a hack and proof of concept. It probably has many.
-
-Please file any specific issues that you encounter at
-https://github.com/driusan/mandown
-
-## Author
-Dave MacFarlane <driusan@gmail.com>
-
-## See Also
-
-man(1), groff(1), nroff(1), troff(1)
